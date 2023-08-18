@@ -70,19 +70,19 @@ class Person(models.Model):
         return self.name
 
 class Passport(models.Model):
-    user = models.OneToOneField(to=Person, on_delete = models.CASCADE)
+    user = models.OneToOneField(to=Person, on_delete = models.CASCADE)  # on_delete = models.CASCADE dile person delete korle passport o delet hpye jabe
     pass_number = models.IntegerField()
     page = models.IntegerField()
     validity = models.IntegerField()    
     
 
-# 2. one to many relationship
+# 2. one to many relationships
 class Post(models.Model):
     user = models.ForeignKey(Person, on_delete=models.SET_NULL, null = True)
     post_cap = models.CharField(max_length=30)
     post_details = models.CharField(max_length=100)
     
-# 3. many to many relationship
+# 3. Many to many relationships
 class Student(models.Model):
     name = models.CharField(max_length=30)
     roll = models.IntegerField()
